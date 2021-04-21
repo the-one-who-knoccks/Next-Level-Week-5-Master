@@ -11,7 +11,7 @@ export default function Home(props) {
   )
 }
 
-// STATIC SIDE GENERATION
+// STATIC SITE GENERATION
 
 export async function getStaticProps() {
   const response = await fetch('http://localhost:3333/episodes')
