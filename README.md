@@ -27,6 +27,7 @@ O projeto está sendo desenvolvido com as seguintes tecnologias.
 * [Typescript](https://www.typescriptlang.org/)
 * [React](https://reactjs.org/)
 * [Next.js](https://nextjs.org/) 
+* [Json.server](https://github.com/typicode/json-server/)
  
 
   
