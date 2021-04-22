@@ -16,7 +16,7 @@
                       
 ## Sobre
       
-## 🎶 Podcastr é uma aplicação web de Podcasts.
+## 🎶 Podcastr é uma aplicação web de listagem de  Podcasts.
 
 <br/>
  <br/> 
