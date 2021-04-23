@@ -18,6 +18,11 @@
       
 ## 🎶 Podcastr é uma aplicação web de listagem de  Podcasts.
 
+<div>
+  <img src="https://ik.imagekit.io/hld13bjzb1/Peek_2021-04-23_00-29_7bK1N6QXm7.gif" alt="Happy Demo" heigth="450">
+</div>
+<br/>
+
 <br/>
  <br/> 
     
