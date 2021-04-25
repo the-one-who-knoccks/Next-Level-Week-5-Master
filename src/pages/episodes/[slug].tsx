@@ -8,6 +8,8 @@ import { convertDurationToTimeString } from '../../utils/convertDurationToTimeSt
 import Image from 'next/image';
 
 import styles from './episode.module.scss';
+import { usePlayer } from '../../contexts/PlayerContext';
+import Head from 'next/head';
 
 interface Episode {
   id: string;
@@ -27,12 +29,18 @@ interface EpisodeProps {
 
 export default function Episode({ episode }: EpisodeProps) {
 
+  const { handlePlayEpisode } = usePlayer();
+
   return (
     <div className={styles.episode}>
+
+      <Head>
+        <title>{episode.title} | Podcastr</title>
+      </Head>
       <div className={styles.thumbnailContainer}>
         <Link href="/">
           <button type="button">
-            <img src="/arrow-left.svg" alt="Voltar"/>
+            <img src="/arrow-left.svg" alt="Voltar" />
           </button>
         </Link>
         <Image
@@ -41,8 +49,8 @@ export default function Episode({ episode }: EpisodeProps) {
           src={episode.thumbnail}
           objectFit="cover"
         />
-        <button type="button">
-          <img src="/play.svg" alt="Tocar episódio"/>
+        <button type="button" onClick={() => handlePlayEpisode(episode)}>
+          <img src="/play.svg" alt="Tocar episódio" />
         </button>
       </div>
 
@@ -53,16 +61,16 @@ export default function Episode({ episode }: EpisodeProps) {
         <span>{episode.durationAsString}</span>
       </header>
 
-      <div className={styles.description} dangerouslySetInnerHTML={{__html: episode.description}} />
-  
-      
+      <div className={styles.description} dangerouslySetInnerHTML={{ __html: episode.description }} />
+
+
     </div>
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-  const {data} = await api.get('episodes', {
+  const { data } = await api.get('episodes', {
     params: {
       _limit: 12,
       _sort: 'published_at',
@@ -90,17 +98,17 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const { data } = await api.get(`/episodes/${slug}`)
 
   const episode = {
-      id: data.id,
-      title: data.title,
-      thumbnail: data.thumbnail,
-      members: data.members,
-      publishedAt: format(parseISO(data.published_at), 'd MMM yy', { locale: ptBR }),
-      duration: Number(data.file.duration),
-      durationAsString: convertDurationToTimeString(Number(data.file.duration)),
-      description: data.description,
-      url: data.file.url,
+    id: data.id,
+    title: data.title,
+    thumbnail: data.thumbnail,
+    members: data.members,
+    publishedAt: format(parseISO(data.published_at), 'd MMM yy', { locale: ptBR }),
+    duration: Number(data.file.duration),
+    durationAsString: convertDurationToTimeString(Number(data.file.duration)),
+    description: data.description,
+    url: data.file.url,
 
-    };
+  };
 
   return {
     props: {
