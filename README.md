@@ -14,7 +14,7 @@
 </p>                            
           
                            
-## Sobre  
+## Sobre   
       
 ## 🎶 Podcastr é uma aplicação web de listagem de  Podcasts.
 
