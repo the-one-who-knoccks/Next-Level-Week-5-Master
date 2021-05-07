@@ -25,7 +25,7 @@
 
 <br/>
  <br/> 
-    
+     
 ## 🖥️ Tecnologias 
 O projeto está sendo desenvolvido com as seguintes tecnologias.
 
